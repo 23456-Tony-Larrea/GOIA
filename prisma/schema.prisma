@@ -28,3 +28,4 @@ model RolePermission {
   role        Role   @relation(fields: [roleId], references: [id])
   roleId      Int
 }
+

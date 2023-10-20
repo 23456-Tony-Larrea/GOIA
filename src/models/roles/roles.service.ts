@@ -3,7 +3,7 @@ import { PrismaService } from '../../../prisma/prisma.service';
 
 @Injectable()
 export class RolesService {
-    constructor(private prismaService: PrismaService) {}
+    constructor(private prismaService: PrismaService ) {}
     
     async findAll() {
         return this.prismaService.role.findMany();
@@ -14,8 +14,18 @@ export class RolesService {
     }
     
     async create(data: any) {
-        await this.prismaService.role.create({ data });
-        return { message: 'Role created successfully'};
+        const newRole= await this.prismaService.role.create({ data });
+        const permisions= await this.prismaService.permission.findMany();
+        const rolePermissions=[];
+        for (const permission of permisions) {
+            rolePermissions.push({
+                permissionId: permission.id,
+                roleId: newRole.id,
+                state:true
+            });
+        }
+        await this.prismaService.rolePermission.createMany({ data: rolePermissions });
+        return { message: 'Role created successfully' };
     }
     
     async update(id: number, data: any) {

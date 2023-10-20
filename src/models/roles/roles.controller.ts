@@ -6,6 +6,7 @@ import { UpdateRolesDto } from '../../DTO/roles/UpdateRolesDto.class';
 @Controller('roles')
 export class RolesController {
     constructor(private readonly rolesService: RolesService) {}
+    
     @Get()
     findAll() {
         return this.rolesService.findAll();
