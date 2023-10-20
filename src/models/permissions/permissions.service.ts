@@ -14,7 +14,8 @@ export class PermissionsService {
   }
 
   async create(data: any) {
-    return this.prismaService.permission.create({ data });
+    await this.prismaService.permission.create({ data });
+    return { message: 'Permission created successfully'};
   }
 
   async update(id: number, data: any) {
@@ -22,6 +23,7 @@ export class PermissionsService {
   }
 
   async remove(id: number) {
-    return this.prismaService.permission.delete({ where: { id } });
+    await this.prismaService.permission.delete({ where: { id } });
+    return { message: 'Permission deleted successfully' };
   }
 }

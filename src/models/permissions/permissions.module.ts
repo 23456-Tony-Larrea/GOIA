@@ -8,5 +8,3 @@ import { PrismaService } from '../../../prisma/prisma.service'; // Asegúrate de
   providers: [PermissionsService, PrismaService], // Agrega PrismaService a la lista de providers
 })
 export class PermissionsModule {}
-
- 
