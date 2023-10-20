@@ -18,6 +18,7 @@ model Role {
   id          Int          @id @default(autoincrement())
   name        String
   permissions RolePermission[]
+  users       Users[]
 }
 
 model RolePermission {
@@ -29,3 +30,13 @@ model RolePermission {
   roleId      Int
 }
 
+model Users {
+  id          Int      @id @default(autoincrement())
+  email       String?   @unique
+  name        String?
+  password    String?
+  token       String?
+  token_type  String?
+  role      Role?     @relation(fields: [roleId], references: [id])
+  roleId    Int?
+}

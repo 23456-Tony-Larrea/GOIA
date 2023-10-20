@@ -8,10 +8,14 @@ import { PermissionsService } from './models/permissions/permissions.service';
 import { RolesModule } from './models/roles/roles.module';
 import { RolesPermisssionModule } from './models/roles_permission/roles_permisssion.module';
 import { RolesPermissionController } from './models/roles_permission/roles_permission.controller';
+import { LoginRegisterService } from './controllers/users/login-register.service';
+import { LoginRegisterModule } from './controllers/users/login-register.module';
+import { LoginRegisterController } from './controllers/users/login-register.controller';
+
 
 @Module({
-  imports: [PermissionsModule, RolesModule, RolesPermisssionModule],
-  controllers: [AppController,PermissionsController, RolesPermissionController],
-  providers: [AppService, PrismaService,PermissionsService],
+  imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule],
+  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController],
+  providers: [AppService, PrismaService,PermissionsService, LoginRegisterService,],
 })
 export class AppModule {}
