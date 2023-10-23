@@ -13,11 +13,12 @@ import { LoginRegisterModule } from './controllers/auth/login-register.module';
 import { LoginRegisterController } from './controllers/auth/login-register.controller';
 import { UsersService } from './controllers/users/users.service';
 import { UsersModule } from './controllers/users/users.module';
+import { UsersController } from './controllers/users/users.controller';
 
 
 @Module({
   imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule, UsersModule],
-  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController],
+  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController,UsersController],
   providers: [AppService, PrismaService,PermissionsService, LoginRegisterService, UsersService,],
 })
 export class AppModule {}

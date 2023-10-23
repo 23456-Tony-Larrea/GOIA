@@ -1,4 +1,79 @@
 import { Injectable } from '@nestjs/common';
-
+import { PrismaService } from '../../../prisma/prisma.service';
 @Injectable()
-export class UsersService {}
+export class UsersService {
+    constructor(private prismaService: PrismaService ) {}    
+    async findWithJoin() {
+        return this.prismaService.users.findMany({
+            include:{
+                role:true,
+            },
+    });
+    }
+    async updateState(userId: number, newState: boolean) {
+        const user = await this.prismaService.users.findFirst({
+            where: {
+                id:userId,
+            },
+        })
+        if(!user){
+            return { message: 'User not found' };
+        }
+        user.state=newState;
+        await this.prismaService.users.update({
+            where: {
+                id: user.id,
+            },
+            data: {
+                state: newState,
+            },
+        });
+        return { message: 'User updated successfully' };
+    }
+    //get by id with roles
+    async findByIdWithRoles(userId: number) {
+        return this.prismaService.users.findFirst({
+            where:{
+                id:userId
+            },
+            include:{
+                role:true,
+            },
+    });
+    }
+    //update all information with roles
+    async updateAll(userId: number, body: any) {
+        const user = await this.prismaService.users.findFirst({
+            where: {
+                id:userId,
+            },
+        })
+        if(!user){
+            return { message: 'User not found' };
+        }
+        const role = await this.prismaService.role.findFirst({
+            where: {
+                id:body.roleId,
+            },
+        })
+        if(!role){
+            return { message: 'Role not found' };
+        }
+        user.name=body.name;
+        user.email=body.email;
+        user.password=body.password;
+        user.roleId=body.roleId;
+        await this.prismaService.users.update({
+            where: {
+                id: user.id,
+            },
+            data: {
+                name: body.name,
+                email: body.email,
+                password: body.password,
+                roleId: body.roleId,
+            },
+        });
+        return { message: 'User updated successfully' };
+    }
+}

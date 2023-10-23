@@ -39,4 +39,5 @@ model Users {
   token_type  String?
   role Role? @relation(fields: [roleId], references: [id])
   roleId Int?
+  state  Boolean? @default(true) // Puedes usar true o false como valor predeterminado
 }
