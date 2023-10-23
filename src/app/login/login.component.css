@@ -1,0 +1,54 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff; /* Fondo blanco */
+  }
+  
+  .login-card {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    background-color: #fff; /* Card blanco */
+    border-radius: 10px;
+  }
+  
+  .login-title {
+    font-weight: bold;
+    color: #000; /* Título en negrita y color negro */
+  }
+  
+  .custom-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px; /* Espacio adicional para que el texto de los campos no se solape */
+    transition: all 0.3s;
+    pointer-events: none;
+    color: #fff; /* Color blanco para el label */
+  }
+  
+  .input-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .custom-icon {
+    color: gray;   }
+  
+  input:focus + .custom-label,
+  input:valid + .custom-label {
+    top: -30px;
+    left: 0;
+    padding: 0;
+    font-size: 14px; /* Tamaño de fuente más pequeño al escribir en el campo */
+    background-color: #007ACC; /* Cambia el fondo del label a celeste al escribir en el campo */
+    color: #fff; /* Cambia el color del label a blanco al escribir en el campo */
+  }
+  .center-button {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente (opcional) */
+  }

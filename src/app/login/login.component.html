@@ -1,0 +1,25 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-content>
+      <div class="avatar-container">
+        <img [src]="imageUrl" alt="Emplea-GOIA">
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field class="input-field">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" placeholder="Correo electrónico" [(ngModel)]="loginForm.email" name="email">
+          <mat-icon matSuffix class="custom-icon">email</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="input-field">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="Contraseña" [(ngModel)]="loginForm.password" name="password">
+          <mat-icon matSuffix class="custom-icon">lock</mat-icon>
+        </mat-form-field>
+        <mat-card-actions class="center-button">
+          <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+        </mat-card-actions>
+      </form>
+      <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate-multiple" [fullScreen] = "true"><p style="color: white" > Cargando... </p></ngx-spinner>
+    </mat-card-content>
+  </mat-card>
+</div>
