@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/login.service';
-import { LoginForm } from '../class/login-form';
+import { AuthService } from '../../services/login.service';
+import { LoginForm } from '../../class/login-form';
 import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner'; // Importa NgxSpinnerService
