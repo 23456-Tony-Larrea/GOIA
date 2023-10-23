@@ -37,6 +37,6 @@ model Users {
   password    String?
   token       String?
   token_type  String?
-  role      Role?     @relation(fields: [roleId], references: [id])
-  roleId    Int?
+  role Role? @relation(fields: [roleId], references: [id])
+  roleId Int?
 }

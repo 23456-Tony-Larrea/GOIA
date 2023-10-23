@@ -8,4 +8,8 @@ export class LoginRegisterController {
     register(@Body() data: { email: string, password: string, name: string, roleId: number }) {
         return this.loginRegisterService.register(data);
     }
+    @Post('/login')
+    login(@Body() data: { email: string, password: string }) {
+        return this.loginRegisterService.login(data);
+    }
 }
