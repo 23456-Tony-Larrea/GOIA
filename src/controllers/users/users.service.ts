@@ -51,17 +51,8 @@ export class UsersService {
         if(!user){
             return { message: 'User not found' };
         }
-        const role = await this.prismaService.role.findFirst({
-            where: {
-                id:body.roleId,
-            },
-        })
-        if(!role){
-            return { message: 'Role not found' };
-        }
         user.name=body.name;
         user.email=body.email;
-        user.password=body.password;
         user.roleId=body.roleId;
         await this.prismaService.users.update({
             where: {
@@ -70,7 +61,6 @@ export class UsersService {
             data: {
                 name: body.name,
                 email: body.email,
-                password: body.password,
                 roleId: body.roleId,
             },
         });
