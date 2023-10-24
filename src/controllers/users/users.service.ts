@@ -10,7 +10,7 @@ export class UsersService {
             },
     });
     }
-    async updateState(userId: number, newState: boolean) {
+    async updateState(userId: number, state: boolean) {
         const user = await this.prismaService.users.findFirst({
             where: {
                 id:userId,
@@ -19,13 +19,13 @@ export class UsersService {
         if(!user){
             return { message: 'User not found' };
         }
-        user.state=newState;
+        user.state=state;
         await this.prismaService.users.update({
             where: {
                 id: user.id,
             },
             data: {
-                state: newState,
+                state: state,
             },
         });
         return { message: 'User updated successfully' };
