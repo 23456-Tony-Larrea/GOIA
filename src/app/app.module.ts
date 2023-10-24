@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './admin/login/login.component';
-import { EditUserDialogComponent } from './admin/edit-user-dialog-component/edit-user-dialog-component.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -18,7 +17,8 @@ import { EmployeesComponent } from './admin/employees/employees.component'; // I
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field'; // Importa MatFormFieldModule
-import { MatSelectModule } from '@angular/material/select'; // Importa MatSelectModule
+import { MatSelectModule } from '@angular/material/select';
+import { EditUserDialogComponent } from './admin/edit-user-dialog/edit-user-dialog.component'; // Importa MatSelectModule
 
 
 
@@ -27,10 +27,10 @@ import { MatSelectModule } from '@angular/material/select'; // Importa MatSelect
 @NgModule({
   declarations: [
     AppComponent,
-    EditUserDialogComponent,
     LoginComponent,
     UsersComponent,
     EmployeesComponent,
+    EditUserDialogComponent,
   ],
   imports: [
     BrowserModule,
