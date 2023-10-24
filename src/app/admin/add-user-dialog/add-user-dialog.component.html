@@ -1,0 +1,17 @@
+<h2>Agregar Usuario</h2>
+
+<mat-form-field>
+  <input matInput placeholder="Nombre" [(ngModel)]="newUser.name" />
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Correo Electrónico" [(ngModel)]="newUser.email" />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select placeholder="Rol" [(ngModel)]="newUser.roleId">
+    <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="addUser()">Agregar Usuario</button>

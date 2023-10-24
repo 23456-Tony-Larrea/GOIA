@@ -3,3 +3,4 @@ export const LOGIN_ENDPOINT = '/login-register/login';
 export const USERS_ENDPOINT = '/users';
 export const USERS_ROLES = '/roles';
 export const UPDATE_USERS='/users/updateAll'
+export const REGISTER_USERS='/login-register/register'

@@ -18,7 +18,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field'; // Importa MatFormFieldModule
 import { MatSelectModule } from '@angular/material/select';
-import { EditUserDialogComponent } from './admin/edit-user-dialog/edit-user-dialog.component'; // Importa MatSelectModule
+import { EditUserDialogComponent } from './admin/edit-user-dialog/edit-user-dialog.component';
+import { AddUserDialogComponent } from './admin/add-user-dialog/add-user-dialog.component';
 
 
 
@@ -31,6 +32,7 @@ import { EditUserDialogComponent } from './admin/edit-user-dialog/edit-user-dial
     UsersComponent,
     EmployeesComponent,
     EditUserDialogComponent,
+    AddUserDialogComponent,
   ],
   imports: [
     BrowserModule,
