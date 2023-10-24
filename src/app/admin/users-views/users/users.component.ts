@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/class/Users';
 import { MatDialog } from '@angular/material/dialog';
-import { EditUserDialogComponent } from '../../admin/edit-user-dialog/edit-user-dialog.component';
+import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.component'; // Importa el componente de diálogo de agregar usuarios
 
 @Component({

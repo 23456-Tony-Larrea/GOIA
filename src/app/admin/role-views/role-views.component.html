@@ -1,0 +1,11 @@
+<div class="roles-container">
+    <button (click)="createRole()">
+      <i class="material-icons">add</i>
+      Crear Rol
+    </button>
+    <ul class="roles-list">
+      <li *ngFor="let role of roles" (click)="selectRole(role)">
+        {{ role.name }}
+      </li>
+    </ul>
+  </div> 

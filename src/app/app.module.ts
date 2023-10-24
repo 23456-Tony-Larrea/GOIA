@@ -12,14 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { UsersComponent } from './admin/users/users.component';
+import { UsersComponent } from './admin/users-views/users/users.component';
 import { EmployeesComponent } from './admin/employees/employees.component'; // Importa NgxSpinnerModule,
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field'; // Importa MatFormFieldModule
 import { MatSelectModule } from '@angular/material/select';
-import { EditUserDialogComponent } from './admin/edit-user-dialog/edit-user-dialog.component';
-import { AddUserDialogComponent } from './admin/add-user-dialog/add-user-dialog.component';
+import { EditUserDialogComponent } from './admin/users-views/edit-user-dialog/edit-user-dialog.component';
+import { AddUserDialogComponent } from './admin/users-views/add-user-dialog/add-user-dialog.component';
+import { RoleViewsComponent } from './admin/role-views/role-views.component';
 
 
 
@@ -33,6 +34,7 @@ import { AddUserDialogComponent } from './admin/add-user-dialog/add-user-dialog.
     EmployeesComponent,
     EditUserDialogComponent,
     AddUserDialogComponent,
+    RoleViewsComponent,
   ],
   imports: [
     BrowserModule,
