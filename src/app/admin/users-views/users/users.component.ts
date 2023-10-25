@@ -12,7 +12,7 @@ import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.compo
 })
 export class UsersComponent {
   users: User[] = [];
-  displayedColumns: string[] = ['name', 'email', 'rol', 'actions'];
+  displayedColumns: string[] = ['name', 'email', 'rol','state' ,'actions'];
 
   constructor(private usersService: UsersService, private dialog: MatDialog) {
     this.usersService.getUsers().subscribe((users) => {
@@ -53,4 +53,11 @@ export class UsersComponent {
       }
     });
   }
+  //usar change state 
+  changeState(user: User) {
+    this.usersService.changeState(user.id).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
+

@@ -25,8 +25,8 @@ export class UsersService {
     return this.http.put<User>(url, user);
   }
   //CAMBIAR ESTADO
-  changeState(userId: number, state: { state: boolean }): Observable<User> {
-    return this.http.put<User>(`${API_BASE_URL}${USERS_ENDPOINT}/${userId}`, state);
+  changeState(userId: number,): Observable<User> {
+    return this.http.put<User>(`${API_BASE_URL}${USERS_ENDPOINT}/${userId}`,null);
   }
   registerUser(data: { email: string, password:string, name: string, roleId: number }): Observable<any> {
     const url = `${API_BASE_URL}${REGISTER_USERS}`;
