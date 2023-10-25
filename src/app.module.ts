@@ -24,11 +24,15 @@ import { ProjectsController } from './routes/projects.controller';
 import { ProjectsService } from './models/projects/projects.service';
 import { ProjectsModule } from './models/projects/projects.module';
 import { MaterialModule } from './models/material/material.module';
+import { AreaChargeProjectsModule } from './models/area-charge_projects/area-charge_projects.module';
+import { AreaChargeProjectsController } from './routes/area-charge_projects.controller';
+import { AsignatureProjectsController } from './routes/asignature-projects.controller';
+import { AsignatureProjectsModule } from './models/asignature-projects/asignature-projects.module';
 
 
 @Module({
-  imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule, UsersModule, ChargeModule, DepartmentModule, AreaChargeModule, ProjectsModule, MaterialModule],
-  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController,UsersController, DepartmentController, ProjectsController],
+  imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule, UsersModule, ChargeModule, DepartmentModule, AreaChargeModule, ProjectsModule, MaterialModule, AreaChargeProjectsModule, AsignatureProjectsModule],
+  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController,UsersController, DepartmentController, ProjectsController, AreaChargeProjectsController, AsignatureProjectsController],
   providers: [AppService, PrismaService,PermissionsService, LoginRegisterService, UsersService, ChargeService, DepartmentService, ProjectsService,],
 })
 export class AppModule {}
