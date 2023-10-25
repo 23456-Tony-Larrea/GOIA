@@ -1,5 +1,5 @@
 import { Controller, Get,Put, Param,Body } from '@nestjs/common';
-import { RolesPermissionService } from './roles_permission.service';
+import { RolesPermissionService } from '../models/roles_permission/roles_permission.service';
 
 @Controller('roles-permission')
 export class RolesPermissionController {

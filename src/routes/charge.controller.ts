@@ -1,5 +1,5 @@
 import { Controller,Get,Post,Put,Delete,Param,Body } from '@nestjs/common';
-import { ChargeService } from './charge.service';
+import { ChargeService } from '../models/charge/charge.service';
 @Controller('charge')
 export class ChargeController {
     constructor(private readonly chargeService: ChargeService) {}

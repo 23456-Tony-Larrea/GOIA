@@ -1,9 +1,9 @@
 // permissions.controller.ts
 
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
-import { PermissionsService } from './permissions.service';
-import { CreatePermissionDto } from '../../DTO/permissions/CreatePermissionDto.class';
-import { UpdatePermissionDto } from '../../DTO/permissions/UpdatePermissionDto.class';
+import { PermissionsService } from '../models/permissions/permissions.service';
+import { CreatePermissionDto } from '../DTO/permissions/CreatePermissionDto.class';
+import { UpdatePermissionDto } from '../DTO/permissions/UpdatePermissionDto.class';
 
 @Controller('permissions')
 export class PermissionsController {

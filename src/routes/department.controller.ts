@@ -1,5 +1,5 @@
 import { Controller,Get,Post,Put,Delete,Param,Body } from '@nestjs/common';
-import { DepartmentService } from './department.service';
+import { DepartmentService } from '../models/department/department.service';
 @Controller('department')
 export class DepartmentController {
     constructor(private readonly departmentService:DepartmentService) {}

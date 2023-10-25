@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { PermissionsController } from './permissions.controller';
+import { PermissionsController } from '../../routes/permissions.controller';
 import { PermissionsService } from './permissions.service';
 import { PrismaService } from '../../../prisma/prisma.service'; // Asegúrate de importar PrismaService correctamente
 

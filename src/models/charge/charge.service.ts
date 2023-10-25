@@ -11,7 +11,7 @@ export class ChargeService {
         return this.prismaService.charge.findUnique({where:{id}});
     }
     async create(data:any){
-        const newCharge=await this.prismaService.charge.create({data});
+        await this.prismaService.charge.create({data});
         return {message:'Charge created successfully'};
     }
     async update(id:number,data:any){

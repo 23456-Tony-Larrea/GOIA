@@ -49,6 +49,8 @@ export class UsersService {
             },
             include:{
                 role:true,
+                Charge:true,
+                Department:true
             },
     });
     }

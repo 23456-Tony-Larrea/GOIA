@@ -1,5 +1,5 @@
 import { Controller,Get,Put,Param,Body } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { UsersService } from '../models/users/users.service';
 @Controller('users')
 export class UsersController {
     constructor(private usersService: UsersService) {}
