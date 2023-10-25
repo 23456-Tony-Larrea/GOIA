@@ -11,14 +11,19 @@ import { RolesPermissionController } from './models/roles_permission/roles_permi
 import { LoginRegisterService } from './controllers/auth/login-register.service';
 import { LoginRegisterModule } from './controllers/auth/login-register.module';
 import { LoginRegisterController } from './controllers/auth/login-register.controller';
-import { UsersService } from './controllers/users/users.service';
-import { UsersModule } from './controllers/users/users.module';
-import { UsersController } from './controllers/users/users.controller';
+import { UsersService } from './models/users/users.service';
+import { UsersModule } from './models/users/users.module';
+import { UsersController } from './models/users/users.controller';
+import { ChargeService } from './models/charge/charge.service';
+import { ChargeModule } from './models/charge/charge.module';
+import { DepartmentService } from './models/department/department.service';
+import { DepartmentController } from './models/department/department.controller';
+import { DepartmentModule } from './models/department/department.module';
 
 
 @Module({
-  imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule, UsersModule],
-  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController,UsersController],
-  providers: [AppService, PrismaService,PermissionsService, LoginRegisterService, UsersService,],
+  imports: [PermissionsModule, RolesModule, RolesPermisssionModule, LoginRegisterModule, UsersModule, ChargeModule, DepartmentModule],
+  controllers: [AppController,PermissionsController, RolesPermissionController, LoginRegisterController,UsersController, DepartmentController],
+  providers: [AppService, PrismaService,PermissionsService, LoginRegisterService, UsersService, ChargeService, DepartmentService,],
 })
 export class AppModule {}

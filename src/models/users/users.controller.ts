@@ -13,10 +13,9 @@ export class UsersController {
         return this.usersService.findWithJoin();
     }
     @Put(':id')
-    async updateState(@Param('id') id: string, @Body() body: any) {
-        const userId = parseInt(id);
-        const newState = body.state;
-        return this.usersService.updateState(userId, newState);
+    async updateState(@Param('id') id: string) {
+        const userId = parseInt(id)
+        return this.usersService.updateState(userId);
     }
     @Put('updateAll/:id')
     async updateAll(@Param('id') id: string, @Body() body: any) {
