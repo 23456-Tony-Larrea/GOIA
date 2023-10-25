@@ -1,5 +1,7 @@
 import { Controller,Get,Post,Put,Delete,Param,Body } from '@nestjs/common';
 import { AreaChargeService } from '../models/area-charge/area-charge.service';
+import moment from 'moment';
+
 @Controller('area-charge')
 export class AreaChargeController {
     constructor(private readonly areaChargeService: AreaChargeService) {}
@@ -13,11 +15,11 @@ export class AreaChargeController {
         return this.areaChargeService.findOne(idNumber);
     }
     @Post()
-    create(@Body() data:{name:string,state:boolean,user_id:number}) {
+    create(@Body() data:{name:string,userId:any}) {
         return this.areaChargeService.create(data);
     }
     @Put(':id')
-    update(@Param('id') id: string, @Body() data:{name:string,state:boolean,user_id:number}) {
+    update(@Param('id') id: string, @Body() data:{name:string,description:string,userId:any}) {
         const idNumber = parseInt(id);
         return this.areaChargeService.update(idNumber,data);
     }

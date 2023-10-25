@@ -14,11 +14,11 @@ export class ProjectsController {
         return this.projectsService.findOne(idNumber);
     }
     @Post()
-    create(@Body() data:{name:string,state:boolean,finishDate:Date,motiveDemore:string,observation:string,materialId:number,description:string}) {
+    create(@Body() data:{name:string,state:boolean,finishDate:any,motiveDemore:string,observation:string,materialId:any,description:string}) {
         return this.projectsService.create(data);
     }
     @Put(':id')
-    update(@Param('id') id: string, @Body() data:{name:string,state:boolean,finishDate:Date,motiveDemore:string,observation:string,materialId:number,description:string}) {
+    update(@Param('id') id: string, @Body() data:{name:string,state:boolean,finishDate:any,motiveDemore:string,observation:string,materialId:any,description:string}) {
         const idNumber = parseInt(id);
         return this.projectsService.update(idNumber,data);
     }
