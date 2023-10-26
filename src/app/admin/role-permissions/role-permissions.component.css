@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  
+  .roles-container {
+    width: 400px;
+  }
+  
+  .permissions-container {
+    flex: 1;
+    margin-left: 16px;
+  }
+  
+  .divider {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 16px;
+    height: 100%;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  button {
+    margin-left: 8px;
+  }
+  
+  .roles-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .permissions-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  

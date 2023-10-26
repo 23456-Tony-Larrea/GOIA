@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="roles-container">
+      <h2>Roles</h2>
+      <div class="card-container">
+        <mat-card class="role-card" *ngFor="let role of roles" (click)="selectRole(role.id)">
+          <mat-card-content>
+            <span>{{ role.name }}</span>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button color="warn" (click)="deleteRole(role)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="editRole(role)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newRoleName" placeholder="New role name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="createRole()">Create role</button>
+    </div>
+    <div class="divider"></div>
+    <div class="permissions-container" *ngIf="selectedRole">
+      <h2>Permissions for {{ selectedRoleName }}</h2>
+      <mat-list class="permissions-list">
+        <mat-list-item *ngFor="let permission of rolePermissions">
+            <span mat-line>{{ permission.permission.name }}</span>
+            <mat-slide-toggle color="primary" [(ngModel)]="permission.state" (change)="updateRolePermissions(selectedRole.id, permission.permission.id, permission.state)"></mat-slide-toggle>
+          </mat-list-item>
+      </mat-list>
+      <p-toast></p-toast>
+    </div>
+  </div>

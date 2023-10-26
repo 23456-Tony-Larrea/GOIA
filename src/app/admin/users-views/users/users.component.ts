@@ -56,7 +56,8 @@ export class UsersComponent {
   //usar change state 
   changeState(user: User) {
     this.usersService.changeState(user.id).subscribe((data) => {
-      console.log(data);
+      const index = this.users.findIndex((u) => u.id === user.id);
+      this.users[index] = data;
     });
   }
 }

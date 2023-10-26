@@ -20,7 +20,15 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Importa Ma
 import { MatSelectModule } from '@angular/material/select';
 import { EditUserDialogComponent } from './admin/users-views/edit-user-dialog/edit-user-dialog.component';
 import { AddUserDialogComponent } from './admin/users-views/add-user-dialog/add-user-dialog.component';
-import { RoleViewsComponent } from './admin/role-views/role-views.component';
+import { RolePermissionsComponent } from './admin/role-permissions/role-permissions.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatListModule } from '@angular/material/list';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api'; // Importa MessageService
+
+
+
 
 
 
@@ -34,7 +42,7 @@ import { RoleViewsComponent } from './admin/role-views/role-views.component';
     EmployeesComponent,
     EditUserDialogComponent,
     AddUserDialogComponent,
-    RoleViewsComponent,
+    RolePermissionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +59,13 @@ import { RoleViewsComponent } from './admin/role-views/role-views.component';
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatListModule,
+    ToastModule,
+
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

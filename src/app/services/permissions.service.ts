@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { API_BASE_URL,USERS_ROLES ,ROLE_PERMISSSIONS,PERMISSIONS} from '../constants/api-constants';
 import { Roles } from '../class/Roles';
 import { Observable } from 'rxjs';
+import { Permission } from '../class/Permission';
+import { RolePermission } from '../class/RolePermissions';
 
 
 @Injectable({
@@ -23,17 +25,18 @@ export class PermissionsService {
     return this.http.delete<Roles>(`${API_BASE_URL}${USERS_ROLES}/${rolesId}`);
   }
   //get roles BY ID FOR ROLE_PERMISSIONS
-  getRolesById(rolesId: number): Observable<Roles> {
-    return this.http.get<Roles>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}`);
+  getRolesById(rolesId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}`);
   }
   //UPDATE ROLES BY ID AND PERMISSION BY ID FOR ROLE_PERMISSIONS
-  updateRolesPermissions(rolesId: number,permissionsId:number): Observable<Roles> {
-    return this.http.put<Roles>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}/${permissionsId}`,null);
+  updateRolesPermissions(rolesId: number,permissionId:number,state:boolean): Observable<Roles> {
+    return this.http.put<Roles>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}/${permissionId}`,state);
   }
   //GET PERMISSIONS
-  getPermissions(): Observable<Permissions> {
+  getPermissions(): Observable<Permission[]> {
     const url = `${API_BASE_URL}${PERMISSIONS}`;
-    return this.http.get<Permissions>(url);
+    return this.http.get<Permission[]>(url);
   }
+
 }
 

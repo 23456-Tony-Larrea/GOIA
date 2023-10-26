@@ -1,4 +1,4 @@
-export class Permissions {
+export class Permission {
     id: number;
     name: string;
     constructor(id: number, name: string) {
