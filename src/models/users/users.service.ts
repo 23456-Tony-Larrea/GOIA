@@ -7,6 +7,8 @@ export class UsersService {
         return this.prismaService.users.findMany({
             include:{
                 role:true,
+                Charge:true,
+                Department:true
             },
     });
     }

@@ -10,7 +10,7 @@ export class PermissionsService {
   }
 
   async findOne(id: number) {
-    return this.prismaService.permission.findUnique({ where: { id } });
+    return this.prismaService.role.findUnique({ where: { id } });
   }
 
   async create(data: any) {
