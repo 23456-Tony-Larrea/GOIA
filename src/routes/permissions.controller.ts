@@ -25,15 +25,4 @@ export class PermissionsController {
     return this.permissionsService.create(createPermissionDto);
   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updatePermissionDto: UpdatePermissionDto) {
-    const idNumber = parseInt(id);
-    return this.permissionsService.update(idNumber, updatePermissionDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    const idNumber = parseInt(id);
-    return this.permissionsService.remove(idNumber);
-  }
 }

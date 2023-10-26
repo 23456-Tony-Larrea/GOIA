@@ -21,7 +21,6 @@ create(@Body() data:{
     userId:number,
     finishDate:any
 }){
-    // Asegúrate de que finishDate tenga el formato correcto (YYYY-MM-DD)
     const formattedFinishDate = moment(data.finishDate, 'YYYY-MM-DD').format('YYYY-MM-DD');
 
     return this.asignatureProjectService.create({ ...data, finishDate: formattedFinishDate });
