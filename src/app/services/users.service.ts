@@ -24,12 +24,14 @@ export class UsersService {
     const url = `${API_BASE_URL}${UPDATE_USERS}/${user.id}`;
     return this.http.put<User>(url, user);
   }
-  //CAMBIAR ESTADO
   changeState(userId: number,): Observable<User> {
     return this.http.put<User>(`${API_BASE_URL}${USERS_ENDPOINT}/${userId}`,null);
   }
   registerUser(data: { email: string, password:string, name: string, roleId: number }): Observable<any> {
     const url = `${API_BASE_URL}${REGISTER_USERS}`;
     return this.http.post<any>(url, data);
+  }
+  getUserById(userId: number): Observable<User> {
+    return this.http.get<User>(`${API_BASE_URL}${USERS_ENDPOINT}/${userId}`);
   }
 }
