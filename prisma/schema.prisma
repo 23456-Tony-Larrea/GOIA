@@ -76,15 +76,20 @@ model Project {
   id            Int           @id @default(autoincrement())
   name          String
   createdAt     DateTime      @default(now())
-  finishDate    DateTime?
+  finishDate    String?
   motiveDemore  String?
   observation   String?
-  state         String?
+  state         ProjectState? 
   description   String?
   areaCharges   AreaChargeToProject[]
   material Material ? @relation(fields: [materialId], references: [id])
   materialId Int?
   asignatureProjects AsignatureProjects[]
+}
+enum ProjectState {
+  REALIZADO
+  FINALIZADO
+  MANTENIMIENTO
 }
 model AreaChargeToProject {
   id            Int           @id @default(autoincrement())
@@ -104,7 +109,7 @@ model Material{
 model AsignatureProjects{
   id Int @id @default(autoincrement())
 startDate DateTime  @default(now())
-finishDate DateTime
+finishDate String?
 project Project? @relation(fields: [projectId], references: [id])
 projectId Int?
 User Users? @relation(fields: [userId], references: [id])

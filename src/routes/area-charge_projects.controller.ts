@@ -13,11 +13,11 @@ export class AreaChargeProjectsController {
         return this.areaChargeProjectsService.findOne(idNumber);
     }
     @Post()
-    create(@Body() data:{area_charge_id:number,project_id:number}) {
+    create(@Body() data:{areaChargeId:number,projectId:number}) {
         return this.areaChargeProjectsService.create(data);
     }
     @Put(':id')
-    update(@Param('id') id: string, @Body() data:{area_charge_id:number,project_id:number}) {
+    update(@Param('id') id: string, @Body() data:{areaChargeId:number,projectId:number}) {
         const idNumber = parseInt(id);
         return this.areaChargeProjectsService.update(idNumber,data);
     }
