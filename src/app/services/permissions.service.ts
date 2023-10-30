@@ -28,15 +28,15 @@ export class PermissionsService {
   getRolesById(rolesId: number): Observable<any[]> {
     return this.http.get<any[]>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}`);
   }
-  //UPDATE ROLES BY ID AND PERMISSION BY ID FOR ROLE_PERMISSIONS
-  updateRolesPermissions(rolesId: number,permissionId:number,state:boolean): Observable<Roles> {
-    return this.http.put<Roles>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}/${permissionId}`,state);
+  //UPDATE ROLES BY ID AND PERMISSION BY ID FOR ROLE_PERMISSIONS  include state boolean
+  updateRolePermission(rolesId: number,permissionId:number,state:boolean): Observable<RolePermission> {
+    return this.http.put<RolePermission>(`${API_BASE_URL}${ROLE_PERMISSSIONS}/${rolesId}/${permissionId}`,{state});
   }
+  
   //GET PERMISSIONS
   getPermissions(): Observable<Permission[]> {
     const url = `${API_BASE_URL}${PERMISSIONS}`;
     return this.http.get<Permission[]>(url);
   }
-
 }
 

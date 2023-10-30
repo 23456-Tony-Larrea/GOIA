@@ -40,7 +40,6 @@ export class UsersComponent {
     });
   }
 
-  // Nuevo método para abrir el cuadro de diálogo de agregar usuarios
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddUserDialogComponent, {
       width: '350px' // Ajusta el ancho según tus necesidades

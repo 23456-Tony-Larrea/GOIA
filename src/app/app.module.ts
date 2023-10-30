@@ -20,12 +20,13 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Importa Ma
 import { MatSelectModule } from '@angular/material/select';
 import { EditUserDialogComponent } from './admin/users-views/edit-user-dialog/edit-user-dialog.component';
 import { AddUserDialogComponent } from './admin/users-views/add-user-dialog/add-user-dialog.component';
-import { RolePermissionsComponent } from './admin/role-permissions/role-permissions.component';
+import { RolePermissionsComponent } from './admin/role-view/role-permissions/role-permissions.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api'; // Importa MessageService
+import { MessageService } from 'primeng/api';
+import { EditRoleComponent } from './admin/role-view/edit-role/edit-role.component'; // Importa MessageService
 
 
 
@@ -43,6 +44,7 @@ import { MessageService } from 'primeng/api'; // Importa MessageService
     EditUserDialogComponent,
     AddUserDialogComponent,
     RolePermissionsComponent,
+    EditRoleComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,11 @@
     <div class="roles-container">
       <h2>Roles</h2>
       <div class="card-container">
+        <mat-form-field>
+          <input matInput [(ngModel)]="newRoleName" placeholder="Crear un nuevo rol">
+        </mat-form-field>
+      
+        <button mat-raised-button color="primary" (click)="createRole()">Crear Rol</button>
         <mat-card class="role-card" *ngFor="let role of roles" (click)="selectRole(role.id)">
           <mat-card-content>
             <span>{{ role.name }}</span>
@@ -16,14 +21,11 @@
           </mat-card-actions>
         </mat-card>
       </div>
-      <mat-form-field>
-        <input matInput [(ngModel)]="newRoleName" placeholder="New role name">
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="createRole()">Create role</button>
+    
     </div>
     <div class="divider"></div>
     <div class="permissions-container" *ngIf="selectedRole">
-      <h2>Permissions for {{ selectedRoleName }}</h2>
+      <h2>Permisos del Rol: {{ selectedRoleName }}</h2>
       <mat-list class="permissions-list">
         <mat-list-item *ngFor="let permission of rolePermissions">
             <span mat-line>{{ permission.permission.name }}</span>

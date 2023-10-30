@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MessageService } from 'primeng/api';
-import { Permission } from '../../class/Permission';
-import { Roles } from '../../class/Roles';
-import { RolePermission } from 'src/app/class/RolePermissions';
+import { Permission } from '../../../class/Permission';
+import { Roles } from '../../../class/Roles';
 import { UsersService } from 'src/app/services/users.service';
 import { PermissionsService } from 'src/app/services/permissions.service';
-
+import { EditRoleComponent } from '../edit-role/edit-role.component';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-role-permissions',
   templateUrl: './role-permissions.component.html',
@@ -26,37 +26,48 @@ export class RolePermissionsComponent {
     this.usersService.getRoles().subscribe((roles) => {
       this.roles = roles;
     });
- /*    this.permissionService.getPermissions().subscribe((permissions) => {
-      this.permissions = permissions;
-    }); */
 
   }
   createRole() {
-    if (this.newRoleName.trim() === '') {
-      this.snackBar.open('Role name cannot be empty', 'Close', { duration: 3000 });
-      return;
-    }
-    if (this.roles.some(role => role.name === this.newRoleName)) {
-      this.snackBar.open('Role already exists', 'Close', { duration: 3000 });
-      return;
-    }
-    this.newRoleName = '';
+    this.permissionService.addRoles({name:this.newRoleName}).subscribe((data) => {
+      this.roles.push(data);
+      this.showSuccessMessage('el rol ha sido creado con exito ');
+      this.newRoleName = ''; // Limpiar el campo de nombre de rol después de agregar uno nuevo
+      this.usersService.getRoles().subscribe((roles) => { // Actualizar la lista de roles
+        this.roles = roles;
+      });
+    });
   }
 
   deleteRole(role: Roles) {
-    const index = this.roles.indexOf(role);
-    if (index !== -1) {
-      this.roles.splice(index, 1);
-    }
-    if (this.selectedRole === role) {
-      this.selectedRole = null;
-      this.selectedRoleName = '';
-    }
-
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.permissionService.deleteRoles(role.id).subscribe((data) => {
+          this.roles = this.roles.filter((r) => r.id !== role.id);
+          this.showSuccessMessage('el rol ha sido eliminado con exito ');
+        });
+      }
+    });
   }
 
-  editRole(role: Roles) {
-    // TODO: Implement edit role functionality
+  editRole(role: Roles):void {
+   const dialogRef = this.dialog.open(EditRoleComponent, {
+    width: '250px',
+    data: role
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result && result.updated) {
+      this.roles = result.roles;
+    }
+  });
   }
   showSuccessMessage(message: string) {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: message });
@@ -70,13 +81,11 @@ export class RolePermissionsComponent {
         this.rolePermissions = data;
       });
     }
-    //extraer el nombre de permisos
     this.rolePermissions.map((rolePermission)=>rolePermission.permission.name)
-
   }
   updateRolePermissions(roleId: number, permissionId: number, state: boolean) {
-    this.permissionService.updateRolesPermissions(roleId, permissionId, state).subscribe((data) => {
-      this.showSuccessMessage('Role permissions updated successfully');
+    this.permissionService.updateRolePermission(roleId, permissionId, state).subscribe((data) => {
+      this.showSuccessMessage('el permiso del rol ha sido actualizado con exito ');
     });
   }
 }
