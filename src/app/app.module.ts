@@ -26,7 +26,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { EditRoleComponent } from './admin/role-view/edit-role/edit-role.component'; // Importa MessageService
+import { EditRoleComponent } from './admin/role-view/edit-role/edit-role.component';
+import { ChargeViewsComponent } from './admin/charge-views/charge/charge-views.component';
+import { AddChargeComponent } from './admin/charge-views/add-charge/add-charge.component';
+import { EditChargeComponent } from './admin/charge-views/edit-charge/edit-charge.component';
 
 
 
@@ -45,6 +48,9 @@ import { EditRoleComponent } from './admin/role-view/edit-role/edit-role.compone
     AddUserDialogComponent,
     RolePermissionsComponent,
     EditRoleComponent,
+    ChargeViewsComponent,
+    AddChargeComponent,
+    EditChargeComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,8 +25,8 @@ export class ChargeService {
     const url = `${API_BASE_URL}${CHARGE}/${charge.id}`;
     return this.http.put<Charge>(url, charge);
   }
-  changeState(chargeId: number,): Observable<Charge> {
-    return this.http.put<Charge>(`${API_BASE_URL}${CHARGE}/${chargeId}`,null);
+  changeState(chargeId: number): Observable<Charge> {
+    return this.http.put<Charge>(`${API_BASE_URL}${CHARGE}/change-state/${chargeId}`,null);
   }
   //by id
   getChargeById(chargeId: number): Observable<Charge> {
