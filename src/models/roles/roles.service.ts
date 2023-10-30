@@ -34,7 +34,6 @@ export class RolesService {
     }
     
     async remove(id: number) {
-//elimina el rol y la clave foranea de rolePermisison
         await this.prismaService.rolePermission.deleteMany({ where: { roleId: id } });
         await this.prismaService.role.delete({ where: { id } });
         return { message: 'Role removed successfully' };

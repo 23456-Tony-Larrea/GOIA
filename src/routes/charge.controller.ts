@@ -26,7 +26,7 @@ export class ChargeController {
         const idNumber = parseInt(id);
         return this.chargeService.remove(idNumber);
     }
-    @Put('change-state/:id')
+    @Put('  :id')
     changeState(@Param('id') id: string) {
         const idNumber = parseInt(id);
         return this.chargeService.changeState(idNumber);

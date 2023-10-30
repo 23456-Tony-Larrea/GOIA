@@ -10,6 +10,9 @@ export class UsersService {
                 Charge:true,
                 Department:true
             },
+            where: {
+                state: true
+            }
     });
     }
     async updateState(userId: number) {
