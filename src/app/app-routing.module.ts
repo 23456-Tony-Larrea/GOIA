@@ -4,6 +4,7 @@ import { LoginComponent } from './admin/login/login.component'; // Add this
 import { UsersComponent } from './admin/users-views/users/users.component';
 import { RolePermissionsComponent } from './admin/role-view/role-permissions/role-permissions.component';
 import { ChargeViewsComponent } from './admin/charge-views/charge/charge-views.component';
+import { DepartmentViewsComponent } from './admin/department-views/department/department-views.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
    { path: 'users', component: UsersComponent },
     { path: 'role-permissions', component: RolePermissionsComponent },
     { path: 'charge', component: ChargeViewsComponent },
+    { path: 'department', component: DepartmentViewsComponent },
 ];
 
 @NgModule({

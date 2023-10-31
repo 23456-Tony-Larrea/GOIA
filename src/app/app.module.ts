@@ -30,6 +30,9 @@ import { EditRoleComponent } from './admin/role-view/edit-role/edit-role.compone
 import { ChargeViewsComponent } from './admin/charge-views/charge/charge-views.component';
 import { AddChargeComponent } from './admin/charge-views/add-charge/add-charge.component';
 import { EditChargeComponent } from './admin/charge-views/edit-charge/edit-charge.component';
+import { DepartmentViewsComponent } from './admin/department-views/department/department-views.component';
+import { EditDepartmentComponent } from './admin/department-views/edit-department/edit-department.component';
+import { AddDepartmentComponent } from './admin/department-views/add-department/add-department.component';
 
 
 
@@ -51,6 +54,9 @@ import { EditChargeComponent } from './admin/charge-views/edit-charge/edit-charg
     ChargeViewsComponent,
     AddChargeComponent,
     EditChargeComponent,
+    DepartmentViewsComponent,
+    EditDepartmentComponent,
+    AddDepartmentComponent,
   ],
   imports: [
     BrowserModule,

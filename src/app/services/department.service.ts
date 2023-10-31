@@ -21,7 +21,7 @@ export class DepartmentService {
     return this.http.put<Department>(url, department);
   }
   changeState(departmentId: number,): Observable<Department> {
-    return this.http.put<Department>(`${API_BASE_URL}${DEPARTMENT}/${departmentId}`,null);
+    return this.http.put<Department>(`${API_BASE_URL}${DEPARTMENT}/change-state/${departmentId}`,null);
   }
   getDepartmentById(departmentId: number): Observable<Department> {
     return this.http.get<Department>(`${API_BASE_URL}${DEPARTMENT}/${departmentId}`);

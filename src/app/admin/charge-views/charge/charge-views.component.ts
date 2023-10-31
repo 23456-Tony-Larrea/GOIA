@@ -54,13 +54,5 @@ displayedColumns: string[] = ['name','state' ,'actions'];
     this.charge[index] = data;
   });
   }
-  /*   this.chargeService.changeState(c
-  charge.id).subscribe((data) => {
-      const index = this.charge.findIndex((u) => u.id === charge.id);
-      this.charge[index] = data;
-      //imrpirme x consola
-      console.log(data);
-    });
-  } */
 
 }
